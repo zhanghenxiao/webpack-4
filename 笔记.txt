@@ -1,3 +1,4 @@
+开发环境
 webpack 是node语言实现的
 二-1 面向过程 面向对象   npx webpack ./index.js（打包index.js文件，使用默认的配置文件）
 import 模块的思考 浏览器  webpack
@@ -7,7 +8,7 @@ import 模块的思考 浏览器  webpack
 1.需安装node 会自带npm
 1.1 npm init -y
 2.（不建议，二个项目会冲突）全局安装npm install webpack webpack-cli -g ， webpack -v webpack-cli -v
-2.项目安装 npm install webpack webpack-cli , npx webpack -v
+2.项目安装 npm install webpack webpack-cli , npx webpack -v， npm info webpack, npm install webpack@4.46.0
 二-4 配置文件  webpack.config.js  png模块与js文件打包方式不一致
 npx webpack 打包 使用webpack.config.js里面的配置来进行打包
 npx webpack --cogfig test_webpack.js 采用webpack.js的方式打包
