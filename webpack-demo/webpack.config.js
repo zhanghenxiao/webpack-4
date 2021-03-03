@@ -36,13 +36,20 @@ module.exports = {
               // 设置互相引用的css文件也需要走下面的二个loader
               importLoaders: 2,
               // 开启css moudle的模块化打包 设置css moudle样式不冲突
-              modules: true
+              // modules: true
             }
           },
           
           'sass-loader',
           'postcss-loader',
         ]
+      },
+      {
+        // 打包字体文件
+        test: /\.(eot|ttf|svg|woff)$/,
+        use: {
+          loader: 'file-loader'
+        }
       },
     ]
   },
