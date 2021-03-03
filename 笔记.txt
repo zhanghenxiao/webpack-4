@@ -13,3 +13,5 @@ import 模块的思考 浏览器  webpack
 npx webpack 打包 使用webpack.config.js里面的配置来进行打包
 npx webpack --cogfig test_webpack.js 采用webpack.js的方式打包
 npm run bundle (scripts 自定义的打包命令)
+三-1 loder是打包方案（webpack不能识别除了.js的文件，我们就需要求助loader）如test.png 需要使用file-loader(静态文件)，header.vue使用vue-loader
+我们要做到后缀有改变我们就需要借助对应的loader
