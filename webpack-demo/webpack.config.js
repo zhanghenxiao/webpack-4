@@ -34,7 +34,9 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // 设置互相引用的css文件也需要走下面的二个loader
-              importLoaders: 2
+              importLoaders: 2,
+              // 开启css moudle的模块化打包 设置css moudle样式不冲突
+              modules: true
             }
           },
           
