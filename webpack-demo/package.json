@@ -4,12 +4,16 @@
   "description": "",
   "scripts": {
     "自定义打包命令 npm run bundle": "",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "watch" : "webpack --watch",
+    "start": "webpack-dev-server",
+    "serve": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "webpack-dev-server": "^3.1.10",
     "clean-webpack-plugin": "^1.0.0",
     "autoprefixer": "^9.3.1",
     "css-loader": "^5.1.1",
@@ -21,6 +25,6 @@
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^3.1.2"
   }
 }

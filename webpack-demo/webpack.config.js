@@ -7,13 +7,19 @@ module.exports = {
   mode: 'development',
   // 共性带有source-map会生成新的map文件
   // development环境 默认开启sourceMap ,我们现在关闭它devtool: 'none'，'cheap-module-eval-source-map'
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   // production环境使用这个devtool: 'cheap-module-source-map'比较好
   // devtool: 'cheap-module-source-map',
   // 打包那个文件
   entry: {
     main: './src/index.js',
     // sub: './src/index.js'
+  },
+  devServer: {
+    // 开启一个web 服务,方便做ajax请求
+    contentBase:'./dist',
+    open:true,
+    port:8080
   },
   module: {
     rules:[
