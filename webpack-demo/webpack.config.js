@@ -1,4 +1,6 @@
 const path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   // 去掉警告，production会被压缩 development打包出来的js会不被压缩
   mode: 'production',
@@ -16,7 +18,7 @@ module.exports = {
           loader: 'url-loader',
           // loader配置
           options: {
-            // 打包的名字nav_hash.后缀
+            // 打包的名字nav_hash.后缀，我们叫做是占位符
             name: '[name]_[hash].[ext]',
             // 打包在images文件下
             outputPath: 'images/',
@@ -53,8 +55,16 @@ module.exports = {
       },
     ]
   },
+  plugins: [
+    // HtmlWebpackPlugin会在打包结束后，自动生成一个html,并把生成的js文件自动引入到html中
+    new HtmlWebpackPlugin({
+      // 以这个模板生成html
+      template: './src/index.html'
+    }),
+    new CleanWebpackPlugin(['./dist'])
+  ],
   output: {
-    // 打包完成生成的名字
+    // 打包完成生成的名字设置为bundle.js,默认是main.js
     filename: 'bundle.js',
     // 打包生成的文件放在那个文件夹bundle下
     path: path.resolve(__dirname, 'dist')
