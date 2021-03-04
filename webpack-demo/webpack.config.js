@@ -82,6 +82,29 @@ module.exports = {
           loader: 'file-loader'
         }
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          // 建立与webpack的联系
+          loader: "babel-loader",
+          // 写在这里太多了，可以新建 .babelrc
+          // options: {
+          //   // 把es6解析成es5语法
+          //   presets: [['@babel/preset-env',
+          //   // 使用@babel/polyfill是把所有的语法都打包进去，设置我们使用到的语法才进行打包
+            //  { 
+            //   targets: {
+            //     // 高于这个版本我们不做es6转es5
+            //     chrome: "67",
+            //   },
+            //   // 按需引入"@babel/polyfill" ,记得也需在业务代码中加上import "@babel/polyfill";;
+            //    useBuiltIns:'usage'
+            //   }
+           // ]]
+          // }
+        }
+      }
     ]
   },
   plugins: [

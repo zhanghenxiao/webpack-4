@@ -1,4 +1,0 @@
-/* 设置偶数 */
-div:nth-of-type(odd) {
-  background-color: pink;
-}
