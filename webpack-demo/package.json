@@ -6,6 +6,7 @@
     "自定义打包命令 npm run bundle": "",
     "bundle": "webpack",
     "watch" : "webpack --watch",
+    "文件dist放在了内存中": "",
     "start": "webpack-dev-server",
     "serve": "node server.js"
   },

@@ -1,7 +1,8 @@
 const path = require('path')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var CleanWebpackPlugin = require('clean-webpack-plugin')
-const { NONAME } = require('dns')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+// HMR使用
+const webpack = require('webpack')
 module.exports = {
   // 去掉警告，production会被压缩 development打包出来的js会不被压缩
   mode: 'development',
@@ -18,8 +19,14 @@ module.exports = {
   devServer: {
     // 开启一个web 服务,方便做ajax请求
     contentBase:'./dist',
+    // 自动打开浏览器
     open:true,
-    port:8080
+    // 端口号为8080
+    port:8080,
+    // HMR使用
+    hot:true,
+    // 即使不生效也不让浏览器刷新
+    hotOnly:true
   },
   module: {
     rules:[
@@ -41,7 +48,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.scss$/,
         use: [
           // 先是css-loader解析再整合到一个文件中，style-loader再挂载到heade上
           'style-loader', 
@@ -60,6 +67,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.css$/,
+        use: [
+          // 先是css-loader解析再整合到一个文件中，style-loader再挂载到heade上
+          'style-loader', 
+          'css-loader',
+          'postcss-loader',
+        ]
+      },
+      {
         // 打包字体文件
         test: /\.(eot|ttf|svg|woff)$/,
         use: {
@@ -74,7 +90,9 @@ module.exports = {
       // 以这个模板生成html
       template: './src/index.html'
     }),
-    new CleanWebpackPlugin(['./dist'])
+    new CleanWebpackPlugin(['./dist']),
+    // HMR使用
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     // 打包出来的index.html 带有cdn
