@@ -2,6 +2,7 @@
   "name": "webpack-demo",
   "version": "1.0.0",
   "description": "",
+  "sideEffects":false,
   "scripts": {
     "自定义打包命令 npm run bundle": "",
     "bundle": "webpack",

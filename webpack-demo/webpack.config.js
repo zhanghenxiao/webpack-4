@@ -5,12 +5,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const webpack = require('webpack')
 module.exports = {
   // 去掉警告，production会被压缩 development打包出来的js会不被压缩
-  mode: 'development',
+  mode: 'production',
   // 共性带有source-map会生成新的map文件
   // development环境 默认开启sourceMap ,我们现在关闭它devtool: 'none'，'cheap-module-eval-source-map'
   // cheap指的是只带列信息不带行信息只针对业务代码，module是也操作loader的文件，eval是种方式
-  devtool: 'cheap-module-eval-source-map',
-  // production环境使用这个devtool: 'cheap-module-source-map'比较好
+  devtool: 'cheap-module-source-map',
+  //production环境使用这个devtool: 'cheap-module-source-map'比较好
   // devtool: 'cheap-module-source-map',
   // 打包那个文件
   entry: {
@@ -121,6 +121,10 @@ module.exports = {
     // HMR使用
     new webpack.HotModuleReplacementPlugin()
   ],
+  // 开发环境设置tree shaking
+  optimization: {
+     usedExports : true
+  },
   output: {
     // 打包出来的index.html 带有cdn
     // publicPath: 'http://cdn.com.cn',
