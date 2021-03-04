@@ -8,6 +8,7 @@ module.exports = {
   mode: 'development',
   // 共性带有source-map会生成新的map文件
   // development环境 默认开启sourceMap ,我们现在关闭它devtool: 'none'，'cheap-module-eval-source-map'
+  // cheap指的是只带列信息不带行信息只针对业务代码，module是也操作loader的文件，eval是种方式
   devtool: 'cheap-module-eval-source-map',
   // production环境使用这个devtool: 'cheap-module-source-map'比较好
   // devtool: 'cheap-module-source-map',
@@ -16,8 +17,9 @@ module.exports = {
     main: './src/index.js',
     // sub: './src/index.js'
   },
+  // 开启一个web 服务
   devServer: {
-    // 开启一个web 服务,方便做ajax请求
+    // 那个目录开启一个web 服务,方便做ajax请求
     contentBase:'./dist',
     // 自动打开浏览器
     open:true,
@@ -28,12 +30,13 @@ module.exports = {
     // 即使不生效也不让浏览器刷新
     hotOnly:true
   },
+  // 遇到不同文件类型是
   module: {
     rules:[
       {
         test: /\.(jpg|png|gif)$/,
         use: {
-          // file-loader 也类似url-loader
+          // file-loader 也类似url-loader会把图片拷贝到dist目录下
           // loader: 'file-loader',
           loader: 'url-loader',
           // loader配置
@@ -84,6 +87,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        // 忽略node-modules的目录下的文件
         exclude: /node_modules/,
         use: {
           // 建立与webpack的联系
