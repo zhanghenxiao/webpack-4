@@ -96,15 +96,23 @@ module.exports = {
       // 以这个模板生成html
       template: './src/index.html'
     }),
-    new CleanWebpackPlugin(['./dist']),
+    new CleanWebpackPlugin(['./dist'], {
+      root: path.resolve(__dirname, '../')
+    }),
   ],
-
+  // optimization: {
+  //   // 代码分割
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
   output: {
     // 打包出来的index.html 带有cdn
     // publicPath: 'http://cdn.com.cn',
     // 打包完成生成的名字设置为bundle.js,默认是main.js
     filename: '[name].js',
     // 打包生成的文件放在那个文件夹bundle下
-    path: path.resolve(__dirname, 'dist')
+    // path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist')
   }
 }

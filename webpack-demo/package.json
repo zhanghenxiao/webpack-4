@@ -7,11 +7,14 @@
     "自定义打包命令 npm run bundle": "",
     "bundle": "webpack",
     "watch": "webpack --watch",
-    "文件dist放在了内存中": "",
+    "启动一个dev-server的服务 文件dist放在了内存中": "",
     "start": "webpack-dev-server",
     "serve": "node server.js",
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "bulid": "webpack --config webpack.prod.js"
+    "不用启动一个服务": "",
+    "dev-bulid": "webpack --config ./bulid/webpack.dev.js",
+    "启动一个dev-server的服务": "",
+    "dev": "webpack-dev-server --config ./bulid/webpack.dev.js",
+    "bulid": "webpack --config ./bulid/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +40,7 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "@babel/runtime-corejs2": "^7.2.0",
